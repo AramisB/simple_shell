@@ -7,7 +7,10 @@
 
 void execute_cmd(const char *cmd)
 {
-	pid_t childPID = fork();
+	pid_t childPID;
+	char *args[];
+
+	childPID = fork();
 
 	if (childPID == -1)
 	{
@@ -16,7 +19,7 @@ void execute_cmd(const char *cmd)
 	}
 	else if (childPID == 0)
 	{
-		execve(cmd, cmd, (char *)NULL);
+		execve(cmd, (char* const*)args, (char *const *)NULL);
 		perror("execve");
 		exit(EXIT_FAILURE);
 	}

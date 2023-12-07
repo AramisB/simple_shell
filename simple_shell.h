@@ -10,7 +10,7 @@
 
 void prompt_display(void);
 void print_func(const char *msg);
-void usr_inpu(char *cmd, size_t size);
+void usr_input(char *cmd, size_t size);
 void execute_cmd(const char *cmd);
 
 #endif
