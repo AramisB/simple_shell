@@ -8,7 +8,7 @@
 void execute_cmd(const char *cmd)
 {
 	pid_t childPID;
-	char *args[];
+	const char **args = malloc(2 * sizeof(char *));
 
 	childPID = fork();
 
@@ -19,9 +19,14 @@ void execute_cmd(const char *cmd)
 	}
 	else if (childPID == 0)
 	{
-		execve(cmd, (char* const*)args, (char *const *)NULL);
-		perror("execve");
-		exit(EXIT_FAILURE);
+		if (args == NULL)
+		{
+			perror("malloc");
+			exit(EXIT_FAILURE);
+			execve(cmd, (char *const *)args, (char *const *)NULL);
+			exit(EXIT_FAILURE);
+			free(args);
+		}
 	}
 	else
 	{
