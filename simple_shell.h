@@ -12,6 +12,7 @@ void prompt_display(void);
 void print_func(const char *msg);
 void usr_input(char *cmd, size_t size);
 void execute_cmd(const char *cmd);
+void execute1_cmd(const char *cmd_line);
 
 #endif
 
