@@ -8,14 +8,19 @@
 int main(void)
 {
 	char cmd[128];
-	char cmd_line[256];
+	char *args[MAX_ARGS];
+	int arg_count;
 
 	while (1)
 	{
 		prompt_display();
 		usr_input(cmd, sizeof(cmd));
-		execute_cmd(cmd);
-		execute1_cmd(cmd_line);
+		arg_count = tokenize(cmd, args);
+
+		if (arg_count > 0)
+		{
+			execute_cmd(args);
+		}
 	}
 	return (0);
 }
