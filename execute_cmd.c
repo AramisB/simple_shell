@@ -9,6 +9,15 @@ void execute_cmd(char *args[])
 {
 	pid_t childPID;
 
+	if (strcmp(args[0], "exit") == 0)
+        {
+                execute_exit();
+        }
+        else if (strcmp(args[0], "env") == 0)
+        {
+		implement_env();
+        }
+
 	childPID = fork();
 
 	if (childPID == -1)
