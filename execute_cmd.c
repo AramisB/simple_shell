@@ -16,6 +16,7 @@ void execute_cmd(char *args[])
         else if (strcmp(args[0], "env") == 0)
         {
 		implement_env();
+		return;
         }
 
 	childPID = fork();
