@@ -2,6 +2,7 @@
 #define SIMPLE_SHELL_H
 
 #define MAX_ARGS 64
+#define MAX_INPUT_LEN 1024
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,6 +17,7 @@ void usr_input(char *cmd, size_t size);
 void execute_cmd(char *args[]);
 int tokenize(char *input, char *args[]);
 void handle_error(const char *msg);
+int cmd_exists(char *cmd);
 
 #endif
 

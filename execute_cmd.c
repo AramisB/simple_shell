@@ -7,7 +7,7 @@
 
 void execute_cmd(char *args[])
 {
-i	pid_t childPID;
+	pid_t childPID;
 
 	childPID = fork();
 
