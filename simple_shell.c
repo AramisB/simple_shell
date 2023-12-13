@@ -15,12 +15,21 @@ int main(void)
 	{
 		prompt_display();
 		usr_input(cmd, sizeof(cmd));
-		exec_cmd_exists();
-		arg_count = tokenize(cmd, args);
 
+		arg_count = tokenize(cmd, args);
+		
 		if (arg_count > 0)
 		{
 			execute_cmd(args);
+
+			if (cmd_exists(args[0]))
+			{
+				execute_cmd2(args[0], args);
+			}
+			else
+			{
+				print_func("Command not found: %s\n");
+			}
 		}
 
 	}
