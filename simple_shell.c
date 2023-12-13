@@ -15,12 +15,14 @@ int main(void)
 	{
 		prompt_display();
 		usr_input(cmd, sizeof(cmd));
+		exec_cmd_exists();
 		arg_count = tokenize(cmd, args);
 
 		if (arg_count > 0)
 		{
 			execute_cmd(args);
 		}
+
 	}
 	return (0);
 }
