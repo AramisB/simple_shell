@@ -12,6 +12,7 @@
 void execute_cmd2(char *cmd, char **tokens)
 {
 	pid_t childPID = fork();
+	int status;
 
 	if (childPID == -1)
 	{
@@ -27,6 +28,11 @@ void execute_cmd2(char *cmd, char **tokens)
 	}
 	else
 	{
-		wait(NULL);
+		waitpid(childPID, &status, 0);
+
+		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+		{
+			print_func("Command execution failed: %s\n", cmd);
+		}
 	}
 }
