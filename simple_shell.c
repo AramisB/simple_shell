@@ -17,7 +17,7 @@ int main(void)
 		usr_input(cmd, sizeof(cmd));
 
 		arg_count = tokenize(cmd, args);
-		
+
 		if (arg_count > 0)
 		{
 			execute_cmd(args);

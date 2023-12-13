@@ -3,6 +3,9 @@
 /**
  * execute_cmd2- function that forks child process
  * and executes given command
+ * @cmd: parameter to be executed
+ * @tokens: a string array
+ *
  *
  */
 
