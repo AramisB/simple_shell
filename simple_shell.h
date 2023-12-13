@@ -11,9 +11,10 @@ extern char **environ;
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdarg.h>
 
 void prompt_display(void);
-void print_func(const char *msg);
+void print_func(const char *format, ...);
 void usr_input(char *cmd, size_t size);
 void execute_cmd(char *args[]);
 int tokenize(char *input, char *args[]);

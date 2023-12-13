@@ -28,7 +28,7 @@ int main(void)
 			}
 			else
 			{
-				print_func("Command not found: %s\n");
+				print_func("Command not found: %s\n", args[0]);
 			}
 		}
 
