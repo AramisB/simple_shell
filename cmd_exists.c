@@ -4,10 +4,10 @@
  * cmd_exists - checks if the command exists in PATH
  * @cmd: command
  *
- * Return: 0 - if command doesn't exist
+ *Return:  full_path when command exists and NULL if it doesn't exist
  */
 
-char * cmd_exists(char *cmd)
+char *cmd_exists(char *cmd)
 {
 	char *path = _getenv("PATH");
 	char *token;

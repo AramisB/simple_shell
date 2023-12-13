@@ -18,17 +18,15 @@ void execute_cmd2(char *cmd, char **tokens)
 	if (childPID == -1)
 	{
 		handle_error("error");
-		exit(EXIT_FAILURE);
 	}
 	else if (childPID == 0)
 	{
 		full_path = cmd_exists(cmd);
-		
+
 		if (full_path != NULL)
 		{
 			execve(full_path, tokens, NULL);
-			perror("execve");
-			_exit(EXIT_FAILURE);
+			handle_error("execve");
 		}
 	}
 	else

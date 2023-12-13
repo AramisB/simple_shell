@@ -15,9 +15,10 @@ char *_getenv(const char *variable)
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		if (strncmp(environ[i], variable, variable_len) == 0 && environ[i][variable_len] == '=')
+		if (strncmp(environ[i], variable, variable_len) == 0
+				&& environ[i][variable_len] == '=')
 		{
-			return environ[i] + variable_len + 1;
+			return (environ[i] + variable_len + 1);
 		}
 	}
 	return (NULL);
