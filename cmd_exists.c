@@ -9,7 +9,7 @@
 
 int cmd_exists(char *cmd)
 {
-	char *path = getenv("PATH");
+	char *path = _getenv("PATH");
 	char *token;
 	char *path_cpy;
 
