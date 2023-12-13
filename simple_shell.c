@@ -21,15 +21,7 @@ int main(void)
 		if (arg_count > 0)
 		{
 			execute_cmd(args);
-
-			if (cmd_exists(args[0]))
-			{
-				execute_cmd2(args[0], args);
-			}
-			else
-			{
-				print_func("Command not found: %s\n", args[0]);
-			}
+			execute_cmd2(args[0], args);
 		}
 
 	}
