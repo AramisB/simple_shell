@@ -34,7 +34,7 @@ void exec_cmd_exists(void)
 			}
 			else
 			{
-				print_func("Command not found: %s\n", cmd);
+				print_func("Command not found: %s\n");
 			}
 		}
 		memset(args, 0, sizeof(args));
