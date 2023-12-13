@@ -13,6 +13,7 @@ void execute_cmd2(char *cmd, char **tokens)
 {
 	pid_t childPID = fork();
 	int status;
+	char *full_path;
 
 	if (childPID == -1)
 	{
@@ -21,10 +22,14 @@ void execute_cmd2(char *cmd, char **tokens)
 	}
 	else if (childPID == 0)
 	{
-		execve(cmd, tokens, NULL);
-
-		perror("execve");
-		_exit(EXIT_FAILURE);
+		full_path = cmd_exists(cmd);
+		
+		if (full_path != NULL)
+		{
+			execve(full_path, tokens, NULL);
+			perror("execve");
+			_exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{

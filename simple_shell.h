@@ -20,7 +20,7 @@ void usr_input(char *cmd, size_t size);
 void execute_cmd(char *args[]);
 int tokenize(char *input, char *args[]);
 void handle_error(const char *msg);
-int cmd_exists(char *cmd);
+char *cmd_exists(char *cmd);
 void execute_exit(void);
 void execute_cmd2(char *cmd, char **tokens);
 void execute_exit();

@@ -7,20 +7,21 @@
  * Return: 0 - if command doesn't exist
  */
 
-int cmd_exists(char *cmd)
+char * cmd_exists(char *cmd)
 {
 	char *path = _getenv("PATH");
 	char *token;
 	char *path_cpy;
+	char *full_path = NULL;
 
 	if (strchr(cmd, '/') != NULL)
 	{
-		return (1);
+		return (strdup(cmd));
 	}
 
 	if (!path)
 	{
-		return (0);
+		return (NULL);
 	}
 
 	path_cpy = strdup(path);
@@ -38,13 +39,13 @@ int cmd_exists(char *cmd)
 
 		if (stat(whole_path, &cmd_info) == 0)
 		{
-			free(path_cpy);
-			return (1);
+			full_path = strdup(whole_path);
+			break;
 		}
 
 		token = strtok(NULL, ":");
 	}
 
 	free(path_cpy);
-	return (0);
+	return (full_path);
 }
