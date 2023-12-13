@@ -13,7 +13,6 @@ int main(void)
 
 	while (1)
 	{
-		print_func("PATH: %s\n", _getenv("PATH"));
 		prompt_display();
 		usr_input(cmd, sizeof(cmd));
 

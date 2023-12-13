@@ -13,6 +13,11 @@ int cmd_exists(char *cmd)
 	char *token;
 	char *path_cpy;
 
+	if (strchr(cmd, '/') != NULL)
+	{
+		return (1);
+	}
+
 	if (!path)
 	{
 		return (0);
