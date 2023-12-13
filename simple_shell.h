@@ -25,5 +25,5 @@ void execute_cmd2(char *cmd, char **tokens);
 void execute_exit();
 void implement_env(void);
 void tknize(char *input, char **args, int *arg_count);
-
+char *_getenv(const char *name);
 #endif

@@ -13,6 +13,11 @@ int cmd_exists(char *cmd)
 	char *token;
 	char *path_cpy;
 
+	if (!path)
+	{
+		return (0);
+	}
+
 	path_cpy = strdup(path);
 
 	token = strtok(path_cpy, ":");
