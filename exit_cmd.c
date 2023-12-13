@@ -5,7 +5,7 @@
  *
  */
 
-void execute_exit() 
+void execute_exit(void)
 {
 	printf("Exiting the shell.\n");
 	exit(EXIT_SUCCESS);

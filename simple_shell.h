@@ -18,7 +18,7 @@ void execute_cmd(char *args[]);
 int tokenize(char *input, char *args[]);
 void handle_error(const char *msg);
 int cmd_exists(char *cmd);
-void execute_exit();
+void execute_exit(void);
 void implement_env(void);
 
 #endif
