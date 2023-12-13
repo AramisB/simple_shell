@@ -9,7 +9,7 @@ void exec_cmd_exists(void)
 {
 	char input[MAX_INPUT_LEN];
 	char *args[MAX_ARGS];
-	int arg_count;
+	int arg_count = 0;
 
 	while (1)
 	{
