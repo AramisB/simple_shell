@@ -22,7 +22,7 @@ void execute_cmd2(char *cmd, char **tokens)
 	{
 		execve(cmd, tokens, NULL);
 
-		handle_error("execve");
+		perror("execve");
 		_exit(EXIT_FAILURE);
 	}
 	else
