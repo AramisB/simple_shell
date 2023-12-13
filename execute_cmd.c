@@ -11,17 +11,18 @@ void execute_cmd(char *args[])
 	{
 		execute_exit();
 	}
-	if (strcmp(args[0], "env") == 0)
+	else if (strcmp(args[0], "env") == 0)
 	{
 		implement_env();
 		return;
 	}
-	if (cmd_exists(args[0]))
+
+	if (!cmd_exists(args[0]))
 	{
-		execute_cmd2(args[0], args);
+		print_func("Command not found: %s\n", args[0]);
 	}
 	else
 	{
-		print_func("Command not found: %s\n", args[0]);
+		execute_cmd2(args[0], args);
 	}
 }
