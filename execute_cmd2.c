@@ -5,11 +5,11 @@
  * and executes given command
  * @cmd: parameter to be executed
  * @tokens: a string array
- *
+ * @envp: an array of strings representing the environment variables
  *
  */
 
-void execute_cmd2(char *cmd, char **tokens)
+void execute_cmd2(char *cmd, char **tokens, char **envp)
 {
 	pid_t childPID = fork();
 	int status;
@@ -25,7 +25,7 @@ void execute_cmd2(char *cmd, char **tokens)
 
 		if (full_path != NULL)
 		{
-			execve(full_path, tokens, NULL);
+			execve(full_path, tokens, envp);
 			handle_error("execve");
 		}
 	}

@@ -7,6 +7,11 @@
 
 void execute_cmd(char *args[])
 {
+	char *envp[] = {
+		"VAR1=value1",
+		"VAR2=value2",
+		NULL};
+
 	if (strcmp(args[0], "exit") == 0)
 	{
 		execute_exit();
@@ -23,6 +28,6 @@ void execute_cmd(char *args[])
 	}
 	else
 	{
-		execute_cmd2(args[0], args);
+		execute_cmd2(args[0], args, envp);
 	}
 }
