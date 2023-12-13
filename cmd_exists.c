@@ -29,13 +29,14 @@ int cmd_exists(char *cmd)
 
 	while (token != NULL)
 	{
+		struct stat cmd_info;
 		char whole_path[MAX_INPUT_LEN];
 
 		strcpy(whole_path, token);
 		strcat(whole_path, "/");
 		strcat(whole_path, cmd);
 
-		if (access(whole_path, F_OK) != -1)
+		if (stat(whole_path, &cmd_info) == 0)
 		{
 			free(path_cpy);
 			return (1);

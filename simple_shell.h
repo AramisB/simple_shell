@@ -12,6 +12,7 @@ extern char **environ;
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdarg.h>
+#include <sys/stat.h>
 
 void prompt_display(void);
 void print_func(const char *format, ...);
@@ -26,4 +27,5 @@ void execute_exit();
 void implement_env(void);
 void tknize(char *input, char **args, int *arg_count);
 char *_getenv(const char *name);
+
 #endif
