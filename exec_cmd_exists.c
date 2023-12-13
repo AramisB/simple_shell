@@ -22,7 +22,7 @@ void exec_cmd_exists(void)
 
 		input[strcspn(input, "\n")] = '\0';
 
-		tknize(input, args, arg_count);
+		tknize(input, args, &arg_count);
 
 		if (arg_count > 0)
 		{
