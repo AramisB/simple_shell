@@ -17,7 +17,7 @@ void execute_cmd2(char *cmd, char **tokens)
 	}
 	else if (childPID == 0)
 	{
-		execve(cmd, args, NULL);
+		execve(cmd, tokens, NULL);
 
 		handle_error("execve");
 		exit(EXIT_FAILURE);

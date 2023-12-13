@@ -3,6 +3,7 @@
 
 #define MAX_ARGS 64
 #define MAX_INPUT_LEN 1024
+extern char **environ;
 
 #include <stdio.h>
 #include <stdlib.h>

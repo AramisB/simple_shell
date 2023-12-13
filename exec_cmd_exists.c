@@ -3,8 +3,6 @@
 /**
  * exec_cmd_exists- function that executes cmd_exists
  *
- *
- * Return: 0
  */
 
 void exec_cmd_exists(void)
@@ -24,7 +22,7 @@ void exec_cmd_exists(void)
 
 		input[strcspn(input, "\n")] = '\0';
 
-		tokenize(input, args, &arg_count);
+		tokenize(input, args);
 
 		if (arg_count > 0)
 		{
@@ -41,5 +39,4 @@ void exec_cmd_exists(void)
 		}
 		memset(args, 0, sizeof(args));
 	}
-	return (0);
 }
