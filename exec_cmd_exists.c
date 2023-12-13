@@ -22,7 +22,7 @@ void exec_cmd_exists(void)
 
 		input[strcspn(input, "\n")] = '\0';
 
-		tokenize(input, args);
+		tknize(input, args, arg_count);
 
 		if (arg_count > 0)
 		{
@@ -34,7 +34,7 @@ void exec_cmd_exists(void)
 			}
 			else
 			{
-				print_func("Command not found: %s\n", cmd);
+				print_func("Command not found: %s\n");
 			}
 		}
 		memset(args, 0, sizeof(args));
