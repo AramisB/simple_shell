@@ -7,6 +7,7 @@
 
 void execute_cmd(char *args[])
 {
+	char *full_path;
 	char *envp[] = {
 		"VAR1=value1",
 		"VAR2=value2",
@@ -22,12 +23,15 @@ void execute_cmd(char *args[])
 		return;
 	}
 
-	if (!cmd_exists(args[0]))
+	full_path = cmd_exists(args[0]);
+
+	if (!full_path)
 	{
 		print_func("Command not found: %s\n", args[0]);
 	}
 	else
 	{
-		execute_cmd2(args[0], args, envp);
+		execute_cmd2(full_path, args, envp);
 	}
+	free(full_path);
 }

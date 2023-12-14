@@ -47,5 +47,10 @@ char *cmd_exists(char *cmd)
 	}
 
 	free(path_cpy);
-	return (full_path);
+
+	if (full_path != NULL)
+	{
+		return (full_path);
+	}
+	return (NULL);
 }

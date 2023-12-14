@@ -4,31 +4,26 @@
  * usr_input - Receives user input using getline.
  * @cmd: Double pointer to a string to store user input.
  *
- *
+ * Return: user input as a string
  */
-void usr_input(char **cmd)
+char *usr_input(char **cmd)
 {
-        size_t size = 0;
-        ssize_t read_chars;
+	char *line = NULL;
+	size_t len = 0;
+	size_t input_length;
 
-        read_chars = getline(cmd, &size, stdin);
-
-        if (read_chars == -1)
-        {
-                if (feof(stdin))
-                {
-                        print_func("\n");
-                        exit(EXIT_SUCCESS);
-                }
-                else
-                {
-                        print_func("Error while reading user input.");
-                        exit(EXIT_FAILURE);
-                }
-        }
-
-        if ((*cmd)[read_chars - 1] == '\n')
-        {
-                (*cmd)[read_chars - 1] = '\0';
-        }
+	if (getline(&line, &len, stdin) == -1)
+	{
+		perror("getline");
+		exit(EXIT_FAILURE);
+	}
+	input_length = strlen(line);
+	
+	if (input_length > 0 && line[input_length - 1] == '\n')
+	{
+		line[input_length - 1] = '\0';
+	}
+	*cmd = strdup(line);
+	free(line);
+	return (*cmd);
 }
