@@ -16,7 +16,7 @@ extern char **environ;
 
 void prompt_display(void);
 void print_func(const char *format, ...);
-void usr_input(char *cmd, size_t size);
+void usr_input(char **cmd);
 void execute_cmd(char *args[]);
 int tokenize(char *input, char *args[]);
 void handle_error(const char *msg);

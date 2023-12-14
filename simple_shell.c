@@ -7,14 +7,14 @@
  */
 int main(void)
 {
-	char cmd[128];
+	char *cmd = NULL;
 	char *args[MAX_ARGS];
 	int arg_count;
 
 	while (1)
 	{
 		prompt_display();
-		usr_input(cmd, sizeof(cmd));
+		usr_input(&cmd);
 
 		arg_count = tokenize(cmd, args);
 
@@ -22,6 +22,7 @@ int main(void)
 		{
 			execute_cmd(args);
 		}
+		free(cmd);
 	}
 	return (0);
 }
