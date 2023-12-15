@@ -18,7 +18,7 @@ char *usr_input(char **cmd)
 		exit(EXIT_FAILURE);
 	}
 	input_length = strlen(line);
-	
+
 	if (input_length > 0 && line[input_length - 1] == '\n')
 	{
 		line[input_length - 1] = '\0';
