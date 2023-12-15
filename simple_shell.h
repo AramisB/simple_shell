@@ -23,7 +23,6 @@ void handle_error(const char *msg);
 char *cmd_exists(char *cmd);
 void execute_exit(void);
 void execute_cmd2(char *cmd, char **tokens, char **envp);
-void execute_exit();
 void implement_env(void);
 void tknize(char *input, char **args, int *arg_count);
 char *_getenv(const char *name);

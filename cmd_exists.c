@@ -52,5 +52,6 @@ char *cmd_exists(char *cmd)
 	{
 		return (full_path);
 	}
+	free(full_path);
 	return (NULL);
 }

@@ -32,6 +32,6 @@ void execute_cmd(char *args[])
 	else
 	{
 		execute_cmd2(full_path, args, envp);
+		free(full_path);
 	}
-	free(full_path);
 }
