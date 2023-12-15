@@ -13,7 +13,7 @@ void execute_cmd2(char *cmd, char **tokens, char **envp)
 {
 	pid_t childPID = fork();
 	int status;
-	char *full_path;
+	char *full_path = NULL;
 
 	if (childPID == -1)
 	{
@@ -36,6 +36,10 @@ void execute_cmd2(char *cmd, char **tokens, char **envp)
 		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
 		{
 			print_func("Command execution failed: %s\n", cmd);
+		}
+		if (full_path != NULL)
+		{
+			free(full_path);
 		}
 	}
 }
