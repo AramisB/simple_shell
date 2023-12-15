@@ -5,5 +5,5 @@
  */
 void prompt_display(void)
 {
-	print_func("Custom_Shell$$ ");
+	print_func("");
 }
