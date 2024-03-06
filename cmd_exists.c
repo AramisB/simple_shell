@@ -17,10 +17,10 @@ char *cmd_exists(char *cmd)
 		return (strdup(cmd));
 	}
 	if (!path)
-	  {
-	    free(path_cpy);
-	    return (NULL);
-	  }
+	{
+		free(path_cpy);
+		return (NULL);
+	}
 	path_cpy = strdup(path);
 	full_path = get_full_path(cmd, path_cpy);
 	free(path_cpy);
@@ -50,7 +50,7 @@ char *get_full_path(char *cmd, char *path)
 
 		strncpy(whole_path, token, MAX_INPUT_LEN - 1);
 		whole_path[MAX_INPUT_LEN - 1] = '\0';
-		
+
 		strncat(whole_path, "/", MAX_INPUT_LEN - 1 - strlen(whole_path));
 		strncat(whole_path, cmd, MAX_INPUT_LEN - 1 - strlen(whole_path));
 

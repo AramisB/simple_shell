@@ -7,9 +7,9 @@
  */
 void handle_error(const char *msg)
 {
-  if (errno != 0)
-    {
-      perror(msg);
-    }
-  exit(EXIT_FAILURE);
+	if (errno != 0)
+	{
+		perror(msg);
+	}
+	exit(EXIT_FAILURE);
 }

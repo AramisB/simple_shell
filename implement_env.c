@@ -7,10 +7,9 @@ void implement_env(void)
 	int i;
 
 	write(STDOUT_FILENO, "Environment:\n", strlen("Environment:\n"));
-
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		 write(STDOUT_FILENO, environ[i], strlen(environ[i]));
-		 write(STDOUT_FILENO, "\n", 1);
+		write(STDOUT_FILENO, environ[i], strlen(environ[i]));
+		write(STDOUT_FILENO, "\n", 1);
 	}
 }
