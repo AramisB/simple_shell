@@ -13,6 +13,7 @@ extern char **environ;
 #include <sys/wait.h>
 #include <stdarg.h>
 #include <sys/stat.h>
+#include<errno.h>
 
 void prompt_display(void);
 void print_func(const char *format, ...);

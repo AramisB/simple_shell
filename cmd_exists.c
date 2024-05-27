@@ -1,32 +1,4 @@
 #include "simple_shell.h"
-char *get_full_path(char *cmd, char *path);
-/**
- * cmd_exists - checks if the command exists in PATH
- * @cmd: command
- *
- * Return: full_path when command exists and NULL if it doesn't exist
- */
-char *cmd_exists(char *cmd)
-{
-	char *path = _getenv("PATH");
-	char *path_cpy = NULL;
-	char *full_path = NULL;
-
-	if (strchr(cmd, '/') != NULL)
-	{
-		return (strdup(cmd));
-	}
-	if (!path)
-	{
-		free(path_cpy);
-		return (NULL);
-	}
-	path_cpy = strdup(path);
-	full_path = get_full_path(cmd, path_cpy);
-	free(path_cpy);
-
-	return (full_path);
-}
 
 /**
  * get_full_path - retrieves the full path of the command from PATH
@@ -63,5 +35,28 @@ char *get_full_path(char *cmd, char *path)
 	}
 	free(path_cpy);
 
+	return (full_path);
+}
+
+/**
+ * cmd_exists - checks if the command exists in PATH
+ * @cmd: command
+ *
+ * Return: full_path when command exists and NULL if it doesn't exist
+ */
+char *cmd_exists(char *cmd)
+{
+	char *path = _getenv("PATH");
+	char *full_path = NULL;
+
+	if (strchr(cmd, '/') != NULL)
+	{
+		return (strdup(cmd));
+	}
+	if (!path)
+	{
+		return (NULL);
+	}
+	full_path = get_full_path(cmd, path);
 	return (full_path);
 }

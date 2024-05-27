@@ -5,5 +5,5 @@
  */
 void prompt_display(void)
 {
-	print_func("");
+	print_func("$ ");
 }

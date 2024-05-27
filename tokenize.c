@@ -1,4 +1,5 @@
 #include "simple_shell.h"
+
 /**
  * tokenize - Function to tokenize input into arguments
  * @input: User input string

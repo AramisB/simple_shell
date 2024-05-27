@@ -1,5 +1,4 @@
 #include "simple_shell.h"
-#include <errno.h>
 
 /**
  * handle_error - a function to handle errors and print error messages
